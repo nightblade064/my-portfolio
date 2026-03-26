@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designs</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            background: black;
+            color: white;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 9%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(0,0,0,0.95);
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #f31d88;
+        }
+
+        nav a {
+            margin-left: 3rem;
+            font-size: 1.7rem;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #f31d88;
+            border-bottom: 3px solid #f31d88;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 995px) {
+            .menu-icon {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: #161616;
+                width: 220px;
+                padding: 2rem;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav a {
+                display: block;
+                margin: 2rem 0;
+                font-size: 2rem;
+            }
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            margin-top: 12rem;
+            padding: 4rem 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .gallery-item h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .gallery-item p {
+            font-size: 1.3rem;
+            padding-bottom: 1rem;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(243,29,136,0.7);
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .modal span {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 4rem;
+            color: #f31d88;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">Coldy</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="designs.html" class="active">Designs</a>
+    </nav>
+
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+</header>
+
+<section class="gallery">
+
+    <div class="gallery-item">
+        <img src="img/black.jpg" onclick="openModal(this.src)">
+        <h3>Tshirt Design</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/rrq.jpg" onclick="openModal(this.src)">
+        <h3>Tshirt Design</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/drama.jpg" onclick="openModal(this.src)">
+        <h3>Tshirt Design</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/codm.jpeg" onclick="openModal(this.src)">
+        <h3>Tshirt Design</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/jersey.jpg" onclick="openModal(this.src)">
+        <h3>Jersey Design</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/Logo.jpg" onclick="openModal(this.src)">
+        <h3>Logo Design</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/dig6.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+        <p>PhilHealth 1st Place – Region IX</p>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/dig1.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+      <div class="gallery-item">
+        <img src="img/dig2.jpg  " onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+      <div class="gallery-item">
+        <img src="img/dig3.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+      <div class="gallery-item">
+        <img src="img/dig4.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+      <div class="gallery-item">
+        <img src="img/dig5.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+    
+      <div class="gallery-item">
+        <img src="img/dig10.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+      <div class="gallery-item">
+        <img src="img/dig7.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+      <div class="gallery-item">
+        <img src="img/dig8.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+      <div class="gallery-item">
+        <img src="img/dig9.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/dig11.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/dig12.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/dig13.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/dig14.jpg" onclick="openModal(this.src)">
+        <h3>Digital Art</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/Donut.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/Logo.jpg" onclick="openModal(this.src)">
+        <h3>Logo Design</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/logo2.jpg" onclick="openModal(this.src)">
+        <h3>Logo Design</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/logo3.jpg" onclick="openModal(this.src)">
+        <h3>Logo Design</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/poster1.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/tarp1.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/tarp2.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/tarp3.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+    
+    <div class="gallery-item">
+        <img src="img/tarp4.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/tarp5.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/tarp6.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/tarp7.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+     <div class="gallery-item">
+        <img src="img/tarp8.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/bday.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/bday2.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/bday3.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/bday4.jpg" onclick="openModal(this.src)">
+        <h3>Tarpaulin</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des1.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des10.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des11.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des12.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des13.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des14.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des15.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des16.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des17.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des18.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des19.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des2.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des20.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des21.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des23.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des24.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des25.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des26.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des27.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des28.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des29.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des3.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des30.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des31.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des32.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des33.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des34.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des35.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="img/des36.jpg" onclick="openModal(this.src)">
+        <h3>Poster</h3>
+    </div>
+    <!-- ADD MORE ITEMS HERE -->
+
+</section>
+
+<div class="modal" id="imageModal">
+    <span onclick="closeModal()">&times;</span>
+    <img id="modalImage">
+</div>
+
+<script>
+    function toggleMenu() {
+        document.querySelector('nav').classList.toggle('active');
+    }
+
+    window.addEventListener('scroll', () => {
+        document.querySelector('header')
+            .classList.toggle('scrolled', window.scrollY > 0);
+    });
+
+    function openModal(src) {
+        document.getElementById('modalImage').src = src;
+        document.getElementById('imageModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('imageModal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
+ 
